@@ -1,11 +1,13 @@
 :root {
   --bg: #f7f3e8;
   --surface: #ffffff;
+  --surface-soft: #f3efe5;
   --text: #18362f;
   --muted: #5f6f68;
   --accent: #c48b2f;
   --accent-dark: #8f5f16;
   --green: #2f6b4f;
+  --green-soft: #eaf4ee;
   --shadow: 0 20px 50px rgba(16, 35, 31, 0.12);
 }
 
@@ -57,7 +59,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(247, 243, 232, 0.94);
+  background: rgba(247, 243, 232, 0.90);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(24, 54, 47, 0.08);
@@ -208,17 +210,19 @@ a {
 }
 
 .btn-primary {
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), #dba94c);
   color: white;
+  box-shadow: 0 18px 35px rgba(196, 139, 47, 0.22);
 }
 
 .btn-primary:hover {
-  background: var(--accent-dark);
+  background: linear-gradient(135deg, #d79f3d, var(--accent-dark));
 }
 
 .btn-secondary {
   border: 1px solid rgba(255, 255, 255, 0.72);
   color: white;
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .hero-badges {
@@ -342,9 +346,10 @@ a {
   border-radius: 1.2rem;
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: block;
   color: inherit;
+  border: 1px solid rgba(24, 54, 47, 0.05);
 }
 
 .trip-card:hover,
@@ -352,6 +357,7 @@ a {
 .story-quote:hover {
   transform: translateY(-6px);
   box-shadow: 0 26px 60px rgba(16, 35, 31, 0.15);
+  border-color: rgba(196, 139, 47, 0.38);
 }
 
 .trip-card img {
@@ -385,12 +391,13 @@ a {
 }
 
 .detail-card {
-  background: var(--surface);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(243,239,229,0.98));
   padding: 2rem;
   border-radius: 1.4rem;
   box-shadow: var(--shadow);
   max-width: 860px;
   margin: 0 auto;
+  border: 1px solid rgba(24, 54, 47, 0.06);
 }
 
 .detail-card h2 {
