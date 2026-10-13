@@ -3,17 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Habs Tours and Travel | Uganda Safaris</title>
+    <title>Habs Tours and Travel | Uganda Safaris, Gorilla Trekking & Wildlife Tours</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#f7f3e8" />
     <meta
       name="description"
-      content="Luxury safari experiences in Uganda with gorilla trekking, wildlife, and unforgettable adventure."
+      content="Habs Tours and Travel offers unforgettable Uganda safari tours, gorilla trekking, wildlife adventures, and personalized travel experiences across East Africa."
     />
+    <meta
+      name="keywords"
+      content="Uganda safaris, gorilla trekking Uganda, wildlife tours, Habs Tours and Travel, safari packages, East Africa travel"
+    />
+    <link rel="canonical" href="https://habs.onrender.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Habs Tours and Travel | Uganda Safaris" />
+    <meta property="og:title" content="Habs Tours and Travel | Uganda Safaris, Gorilla Trekking & Wildlife Tours" />
     <meta property="og:description" content="Plan a Uganda safari with local guides, gorilla trekking, and unforgettable wildlife experiences." />
     <meta property="og:image" content="https://habs.onrender.com/images/Gorilla-spotting-in-Bwindi-Forest.webp" />
     <meta property="og:url" content="https://habs.onrender.com/" />
+    <meta property="og:site_name" content="Habs Tours and Travel" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Habs Tours and Travel | Uganda Safaris" />
+    <meta name="twitter:description" content="Luxury safari experiences in Uganda with gorilla trekking, wildlife, and unforgettable adventure." />
+    <meta name="twitter:image" content="https://habs.onrender.com/images/Gorilla-spotting-in-Bwindi-Forest.webp" />
     <link rel="preload" as="image" href="images/Gorilla-spotting-in-Bwindi-Forest.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +33,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Habs Tours and Travel",
+        "description": "Uganda safari tours, gorilla trekking, wildlife experiences, and customized travel packages.",
+        "url": "https://habs.onrender.com/",
+        "telephone": "+256757189850",
+        "email": "hababupapastathopolos@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jinja",
+          "addressCountry": "UG"
+        },
+        "areaServed": "Uganda",
+        "sameAs": [
+          "https://www.facebook.com",
+          "https://www.instagram.com"
+        ],
+        "priceRange": "$$$"
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -189,8 +222,11 @@
             <input id="contact-email" name="email" type="email" autocomplete="email" required />
             <label for="contact-message">Tell us about your ideal trip</label>
             <textarea id="contact-message" name="message" rows="5" required></textarea>
-            <button class="btn btn-primary" type="submit">Continue in WhatsApp</button>
-            <p class="form-note">Your message opens in WhatsApp for you to review and send.</p>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Send via email</button>
+              <button class="btn btn-secondary" type="button" data-mode="whatsapp">Continue in WhatsApp</button>
+            </div>
+            <p class="form-note">Choose email or WhatsApp to send your inquiry.</p>
           </form>
         </div>
       </section>

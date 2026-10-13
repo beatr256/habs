@@ -29,17 +29,51 @@ if (menuToggle && navLinks) {
   });
 }
 
+const emailAddress = 'hababupapastathopolos@gmail.com';
+
+const buildInquiry = (formData) => {
+  return [
+    `Safari inquiry from ${formData.get('name') || 'A traveler'}`,
+    `Email: ${formData.get('email') || 'Not provided'}`,
+    `Trip details: ${formData.get('message') || 'No details provided'}`,
+  ].join('\n');
+};
+
+const openEmailClient = (formData) => {
+  const subject = encodeURIComponent(`Safari inquiry from ${formData.get('name') || 'A traveler'}`);
+  const body = encodeURIComponent(buildInquiry(formData));
+  window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+};
+
+const openWhatsApp = (formData) => {
+  const inquiry = buildInquiry(formData);
+  const whatsappUrl = new URL('https://wa.me/256757189850');
+  whatsappUrl.searchParams.set('text', inquiry);
+  window.open(whatsappUrl.href, '_blank', 'noopener');
+};
+
 if (contactForm) {
+  const whatsappButton = contactForm.querySelector('[data-mode="whatsapp"]');
+
   contactForm.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    if (!contactForm.reportValidity()) {
+      return;
+    }
+
     const formData = new FormData(contactForm);
-    const inquiry = [
-      `Safari inquiry from ${formData.get('name')}`,
-      `Email: ${formData.get('email')}`,
-      `Trip details: ${formData.get('message')}`,
-    ].join('\n');
-    const whatsappUrl = new URL('https://wa.me/256757189850');
-    whatsappUrl.searchParams.set('text', inquiry);
-    window.location.assign(whatsappUrl.href);
+    openEmailClient(formData);
   });
+
+  if (whatsappButton) {
+    whatsappButton.addEventListener('click', () => {
+      if (!contactForm.reportValidity()) {
+        return;
+      }
+
+      const formData = new FormData(contactForm);
+      openWhatsApp(formData);
+    });
+  }
 }
