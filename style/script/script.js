@@ -29,6 +29,34 @@ if (menuToggle && navLinks) {
   });
 }
 
+const hero = document.querySelector('.hero');
+if (hero) {
+  hero.addEventListener('pointermove', (event) => {
+    const rect = hero.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    hero.style.setProperty('--pointer-x', `${x}%`);
+    hero.style.setProperty('--pointer-y', `${y}%`);
+  });
+}
+
+const revealItems = document.querySelectorAll('.reveal');
+if (revealItems.length) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+}
+
 const emailAddress = 'hababupapastathopolos@gmail.com';
 
 const buildInquiry = (formData) => {

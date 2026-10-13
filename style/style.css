@@ -126,6 +126,18 @@ a {
   background: linear-gradient(rgba(7, 20, 15, 0.45), rgba(7, 20, 15, 0.45)),
     url("../images/Gorilla-spotting-in-Bwindi-Forest.webp") center/cover;
   color: white;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -10% -5% auto auto;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 40%), rgba(196, 139, 47, 0.38), transparent 58%);
+  filter: blur(12px);
+  animation: pulseGlow 8s ease-in-out infinite alternate;
 }
 
 .hero-overlay {
@@ -220,6 +232,69 @@ a {
   font-size: 0.94rem;
 }
 
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 620px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 1rem;
+  padding: 1rem 1rem 0.9rem;
+  backdrop-filter: blur(6px);
+}
+
+.stat-item strong {
+  display: block;
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.1;
+}
+
+.stat-item span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.destination-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: -2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.strip-item {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(24, 54, 47, 0.08);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 18px 40px rgba(16, 35, 31, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.strip-item span {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.strip-item strong {
+  font-size: 0.96rem;
+  color: var(--text);
+}
+
 .section-heading {
   max-width: 720px;
   margin-bottom: 2rem;
@@ -247,11 +322,30 @@ a {
   gap: 1.5rem;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .trip-card {
   background: var(--surface);
   border-radius: 1.2rem;
   overflow: hidden;
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trip-card:hover,
+.highlight-card:hover,
+.story-quote:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(16, 35, 31, 0.15);
 }
 
 .trip-card img {
@@ -322,6 +416,7 @@ a {
   background: var(--surface);
   border-radius: 1rem;
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .highlight-card h3 {
@@ -353,6 +448,7 @@ a {
   background: rgba(255, 255, 255, 0.08);
   font-size: 1.15rem;
   font-style: italic;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contact-grid {
@@ -453,6 +549,17 @@ textarea:focus-visible {
 .footer-links {
   display: flex;
   gap: 1rem;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.96);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 900px) {
