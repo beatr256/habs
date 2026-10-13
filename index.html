@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Habs Tours and Travel | Uganda Safaris</title>
+    <meta name="theme-color" content="#f7f3e8" />
     <meta
       name="description"
       content="Luxury safari experiences in Uganda with gorilla trekking, wildlife, and unforgettable adventure."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Habs Tours and Travel | Uganda Safaris" />
+    <meta property="og:description" content="Plan a Uganda safari with local guides, gorilla trekking, and unforgettable wildlife experiences." />
+    <meta property="og:image" content="https://habs.onrender.com/images/Gorilla-spotting-in-Bwindi-Forest.webp" />
+    <meta property="og:url" content="https://habs.onrender.com/" />
+    <link rel="preload" as="image" href="images/Gorilla-spotting-in-Bwindi-Forest.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,12 +30,12 @@
           <img src="images/IMG-20260514-WA0014.jpg" alt="Habs Adventures logo" />
           <span>Habs Tours and Travel</span>
         </a>
-        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <div class="nav-links">
+        <div class="nav-links" id="primary-navigation">
           <a href="#home">Home</a>
           <a href="#guided-safaris">Guided Safaris</a>
           <a href="#customized-safaris">Customized Safari</a>
@@ -70,7 +77,7 @@
 
         <div class="card-grid">
           <article class="trip-card">
-            <img src="images/sunrise-at-the-nile.webp" alt="River Nile and waterfalls in Uganda" />
+            <img src="images/sunrise-at-the-nile.webp" alt="River Nile and waterfalls in Uganda" loading="lazy" decoding="async" />
             <div class="trip-content">
               <h3>6 Days of Waterfalls, Wildlife & the River Nile</h3>
               <p>Discover the source of the Nile, scenic viewpoints, and remote national parks in a fast-paced adventure.</p>
@@ -79,7 +86,7 @@
           </article>
 
           <article class="trip-card">
-            <img src="images/Gorilla-spotting-in-Bwindi-Forest.webp" alt="Mountain gorilla in the rainforest" />
+            <img src="images/Gorilla-spotting-in-Bwindi-Forest.webp" alt="Mountain gorilla in the rainforest" loading="lazy" decoding="async" />
             <div class="trip-content">
               <h3>8 Days of Gorillas, Chimpanzees & Wildlife</h3>
               <p>Track mountain gorillas in Bwindi, meet chimpanzees in Kibale, and enjoy classic safari moments.</p>
@@ -88,7 +95,7 @@
           </article>
 
           <article class="trip-card">
-            <img src="images/Lion-in-Savanah-m.webp" alt="Safari vehicle in the African wilderness" />
+            <img src="images/Lion-in-Savanah-m.webp" alt="Lion in Uganda's savannah" loading="lazy" decoding="async" />
             <div class="trip-content">
               <h3>10 Days of Big Five & Gorilla Trekking</h3>
               <p>Experience the ultimate Uganda journey with rhinos, lions, elephants, and one of Africa’s most iconic primates.</p>
@@ -111,7 +118,7 @@
             </p>
           </div>
           <div class="image-panel">
-            <img src="images/Gorilla-spotting-in-Bwindi-Forest.webp" alt="Gorilla in Uganda" />
+            <img src="images/Gorilla-spotting-in-Bwindi-Forest.webp" alt="Gorilla in Uganda" loading="lazy" decoding="async" />
             <div class="panel-card">
               <h3>Tailor-made safari packages</h3>
               <p>Self-drive or guided, designed for families, couples, and solo adventurers alike.</p>
@@ -169,17 +176,21 @@
               Share your travel plans and we will craft the perfect safari for your dream holiday.
             </p>
             <ul class="contact-list">
-              <li>Phone 1: +256 757 189850</li>
-              <li>Phone 2: +256 781 415244</li>
-              <li>Email: hababupapastathopolos@gmail.com</li>
+              <li>Phone 1: <a href="tel:+256757189850">+256 757 189850</a></li>
+              <li>Phone 2: <a href="tel:+256781415244">+256 781 415244</a></li>
+              <li>Email: <a href="mailto:hababupapastathopolos@gmail.com">hababupapastathopolos@gmail.com</a></li>
               <li>Location: Jinja, Uganda</li>
             </ul>
           </div>
-          <form class="contact-form">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea rows="5" placeholder="Tell us about your ideal trip"></textarea>
-            <button class="btn btn-primary" type="submit">Inquire Now</button>
+          <form class="contact-form" action="mailto:hababupapastathopolos@gmail.com" method="post" enctype="text/plain">
+            <label for="contact-name">Your name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required />
+            <label for="contact-email">Your email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required />
+            <label for="contact-message">Tell us about your ideal trip</label>
+            <textarea id="contact-message" name="message" rows="5" required></textarea>
+            <button class="btn btn-primary" type="submit">Continue in WhatsApp</button>
+            <p class="form-note">Your message opens in WhatsApp for you to review and send.</p>
           </form>
         </div>
       </section>
