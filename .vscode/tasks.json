@@ -1,0 +1,53 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start contact API",
+			"type": "shell",
+			"command": "node server.js",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install app dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install app dependencies",
+			"type": "shell",
+			"command": "powershell -ExecutionPolicy Bypass -Command \"npm install\"",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install app dependencies",
+			"type": "shell",
+			"command": "cmd /c \"npm install\"",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install app dependencies",
+			"type": "shell",
+			"command": "\"C:\\Program Files\\nodejs\\npm.cmd\" install",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Install app dependencies",
+			"type": "shell",
+			"command": "Set-ExecutionPolicy -Scope Process Bypass; npm install",
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

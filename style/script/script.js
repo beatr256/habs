@@ -82,21 +82,55 @@ const openWhatsApp = (formData) => {
 
 if (contactForm) {
   const whatsappButton = contactForm.querySelector('[data-mode="whatsapp"]');
+  const formNote = contactForm.querySelector('.form-note');
 
-  contactForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    if (!contactForm.reportValidity()) {
+  const setFormNote = (message, isError = false) => {
+    if (!formNote) {
       return;
     }
 
-    const formData = new FormData(contactForm);
-    openEmailClient(formData);
+    formNote.textContent = message;
+    formNote.style.color = isError ? '#f5c7c7' : '#dfe8d6';
+  };
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!contactForm.reportValidity()) {
+      setFormNote('Please complete all fields before sending your inquiry.', true);
+      return;
+    }
+
+    const formData = Object.fromEntries(new FormData(contactForm).entries());
+
+    try {
+      setFormNote('Sending your inquiry...');
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Unable to send your inquiry right now.');
+      }
+
+      setFormNote(result.message || 'Your inquiry was received.');
+      contactForm.reset();
+    } catch (error) {
+      setFormNote(error.message || 'Something went wrong. Please try again.', true);
+    }
   });
 
   if (whatsappButton) {
     whatsappButton.addEventListener('click', () => {
       if (!contactForm.reportValidity()) {
+        setFormNote('Please complete all fields before continuing on WhatsApp.', true);
         return;
       }
 
